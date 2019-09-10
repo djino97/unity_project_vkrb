@@ -223,8 +223,10 @@ public class Interface : MonoBehaviour
 
     void CombustionChamber()
     {
-        if (select_target) {
-            for (int i = 0; i <= 13; i++) {
+        if (select_target) 
+	{
+            for (int i = 0; i <= 13; i++) 
+	    {
                 if ((13 <= i || i <= 3) && number_chamber == i) 
                 {
                     if (flame_pipes_t.check_translation()) 
@@ -276,6 +278,7 @@ public class Interface : MonoBehaviour
                         
                         filter_select.gameObject.GetComponent<MeshRenderer>().material = disk_material;
                     }
+		    
                     if (select_chamber)
                         for (int i = 0; i <= 13; i++) 
                         {
@@ -290,6 +293,7 @@ public class Interface : MonoBehaviour
                         }
                 }
             }
+	    
             if (filter_select == null)
                 filter_select = filter;
 

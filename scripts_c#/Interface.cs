@@ -13,45 +13,45 @@ public class Interface : MonoBehaviour
     // наследование других скриптов 
  
     public rotate_turbine RotateTurbin;
-	  public FlamePipes flame_pipes_t;
-	  public BoltsFlameTube1 BoltsFlameTube1;
-	  public FlameTube FlameTube;
-	  public CaseStepsTop CaseStepsTop;
-	  public Compressor Compressor;
-	  public DropdownSel DropdownSel;
-	  public ToggleDescription ToggleDescription;
-	  public BeginDisassembly BeginDisassembly;
-	  public CameraRotateAround CameraRotateAround;
+    public FlamePipes flame_pipes_t;
+    public BoltsFlameTube1 BoltsFlameTube1;
+    public FlameTube FlameTube;
+    public CaseStepsTop CaseStepsTop;
+    public Compressor Compressor;
+    public DropdownSel DropdownSel;
+    public ToggleDescription ToggleDescription;
+    public BeginDisassembly BeginDisassembly;
+    public CameraRotateAround CameraRotateAround;
 	
-	  public Material select_click;                  // материал для подсветки детали
-	  public Material disk_material;                 // обычный материал для дисков компрессора 
-	  public Material combustion_material;           // материал для камеры сгорания
+    public Material select_click;                  // материал для подсветки детали
+    public Material disk_material;                 // обычный материал для дисков компрессора 
+    public Material combustion_material;           // материал для камеры сгорания
 	  
     public GameObject HelpCompressor;              // подсказка для разборки компрессора 
-	  public GameObject HelpChamber;                 // подсказка для разборки компрессора
+    public GameObject HelpChamber;                 // подсказка для разборки компрессора
     private GameObject[] obj = new GameObject[14]; // массив для 14 камер сгорания
-	  public GameObject image_description;           // изображение детали
+    public GameObject image_description;           // изображение детали
 	
-	  RaycastHit hit;  
+    RaycastHit hit;  
     Ray MyRay;                                     // объявления направленного луча при разборке установки
-	  Ray DescRay;                                   // объявления направленного луча при выводе описания детали установки
+    Ray DescRay;                                   // объявления направленного луча при выводе описания детали установки
 	  
     int number_chamber;
-	  MeshFilter filter_select = null;
-	  MeshFilter filter;
-	  public bool disk_compressor = false;
-	  bool select_chamber;
-	  bool check_material;
-	  GameObject[] obj_comdustion_chamber = new GameObject[14];
-	  Sprite sprite_load;
-	  MeshFilter target_detail;
-	  TextAsset text_load;                           // текст, содержащий описание деталей
+    MeshFilter filter_select = null;
+    MeshFilter filter;
+    public bool disk_compressor = false;
+    bool select_chamber;
+    bool check_material;
+    GameObject[] obj_comdustion_chamber = new GameObject[14];
+    Sprite sprite_load;
+    MeshFilter target_detail;
+    TextAsset text_load;                           // текст, содержащий описание деталей
 	  
     public GameObject description_panel;
-	  public GameObject text_description;
-	  bool select_target;
-	  public GameObject interface_canvas; 
-	  public bool hide_canvas;                       // флаг на скрытие canvas
+    public GameObject text_description;
+    bool select_target;
+    public GameObject interface_canvas; 
+    public bool hide_canvas;                       // флаг на скрытие canvas
   
   
     // вписать в файл специальный булевский флаг
@@ -142,6 +142,7 @@ public class Interface : MonoBehaviour
                             lame_pipes_t.start_translation = true;
                             DropdownSel.select_component = "";
                             break;
+			    
                         case "Камера сгорания":
                             select_chamber = true;
                             BeginDisassembly.disassembly = false;
@@ -339,7 +340,7 @@ public class Interface : MonoBehaviour
                 text_description.GetComponent<Text>().text = text_load.text;
             else
                 text_description.GetComponent<Text>().text = null;
-            image_description.GetComponent<UnityEngine.UI.Image>().sprite = sprite_load;
+          	image_description.GetComponent<UnityEngine.UI.Image>().sprite = sprite_load;
         }
         else
             description_panel.SetActive(false);

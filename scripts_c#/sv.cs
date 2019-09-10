@@ -27,27 +27,27 @@ public class CameraRotateAround : MonoBehaviour {
 	   }
 		
           // при зажатии кнопки мыши происходит смена позиции камеры
-	   if(Input.GetMouseButtonDown(0))
-			translation_camera = true;
-	   else if(Input.GetMouseButtonUp(0))
-			translation_camera = false;
+	  if(Input.GetMouseButtonDown(0))
+	      translation_camera = true;
+	  else if(Input.GetMouseButtonUp(0))
+	      translation_camera = false;
 			
 	  if(Interface.hide_canvas && translation_camera)
 	  {
-          // Масштабирование изображения колесиком мыши
-	   if(Input.GetAxis("Mouse ScrollWheel") > 0) 
-       offset.z += zoom;
-	   else if(Input.GetAxis("Mouse ScrollWheel") < 0) 
-       offset.z -= zoom;
-     offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -  Mathf.Abs(zoomMin));
+              // Масштабирование изображения колесиком мыши
+	      if(Input.GetAxis("Mouse ScrollWheel") > 0) 
+       	      	   offset.z += zoom;
+	      else if(Input.GetAxis("Mouse ScrollWheel") < 0) 
+      		   offset.z -= zoom;
+		  
+     	      offset.z = Mathf.Clamp(offset.z, - Mathf.Abs(zoomMax), -  Mathf.Abs(zoomMin));
+	      X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity; // смена позиции по координате X
  
-	   X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity; // смена позиции по координате X
- 
-     // смена позиции по координате Y
-     Y += Input.GetAxis("Mouse Y") * sensitivity; 
-	   Y = Mathf.Clamp (Y, -limit, 0);
-	   transform.localEulerAngles = new Vector3(-Y, X, 0);
-     transform.position = transform.localRotation * offset   +     target.position;
-		}
+    	      // смена позиции по координате Y
+   	      Y += Input.GetAxis("Mouse Y") * sensitivity; 
+	      Y = Mathf.Clamp (Y, -limit, 0);
+      	      transform.localEulerAngles = new Vector3(-Y, X, 0);
+              transform.position = transform.localRotation * offset   +     target.position;
+	  }
 	}
 }
